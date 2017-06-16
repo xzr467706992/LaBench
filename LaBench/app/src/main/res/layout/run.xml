@@ -5,11 +5,13 @@
 	android:layout_width="match_parent">
 
 	<ProgressBar
-		style="?android:attr/progressBarStyleLarge"
+		style="?android:attr/progressBarStyleHorizontal"
 		android:layout_height="wrap_content"
-		android:layout_width="wrap_content"
+		android:layout_width="match_parent"
 		android:layout_centerHorizontal="true"
-		android:layout_centerVertical="true"/>
+		android:max="5"
+		android:layout_centerVertical="true"
+		android:id="@+id/runProgressBar1"/>
 
 </RelativeLayout>
 

@@ -14,7 +14,7 @@
 	<TextView
 		android:layout_height="wrap_content"
 		android:layout_width="wrap_content"
-		android:text="触摸“开始”以测试设备性能，这个过程可能需要40秒-20分钟不等的时间。"
+		android:text="触摸“开始”以测试设备性能，这个过程可能需要几分钟时间。"
 		android:layout_margin="15dp"/>
 
 	<Button

@@ -67,6 +67,7 @@ public class result extends Activity
 		t5=(TextView)findViewById(R.id.resultTextView5);
 		t6=(TextView)findViewById(R.id.resultTextView6);
 		t7=(TextView)findViewById(R.id.resultTextView7);
+		t7.setText("v"+getVersion());
 		sp=getSharedPreferences("main",0);
 		se=sp.edit();
 		
