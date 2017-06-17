@@ -15,8 +15,6 @@ public class run extends Activity
 	SharedPreferences.Editor se;
 	boolean b=false;
 	ProgressBar p;
-	int k=0;
-	double s=0;
 	int score;
 	@Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -33,8 +31,6 @@ public class run extends Activity
 	public void clear(){
 		score=0;
 		b=false;
-		k=0;
-		s=0;
 	}
 	public void stopall(){
 		runOnUiThread(new Runnable(){
@@ -113,28 +109,32 @@ public class run extends Activity
 		}
 	public class fdb extends Thread{
 		public void run(){
-			double c;
+			double c=0;
 			double v=Math.random()*10+1;
 			boolean bb=false;
-			double p;
+			double p=0;
+			double n;
+			double s=0;
 			while(!b){
-				c=Math.random()*10+1;
-				p=Math.random()*10+1;
-				for(int i=0;i<70000;i++){
+				System.out.println(c+v+p+s+"");
+				c=Math.random()*90+1;
+				p=Math.random()*90+1;
+				n=Math.random()*150+10;
+				for(int i=0;i<20000;i++){
 					if(b){
 						break;
 					}
-					if(k>2000000000){
+					if(s>2000000000){
 						bb=true;
 					}
-					if(k<-2000000000){
+					if(s<-2000000000){
 						bb=false;
 					}
 					if(!bb){
-						s=s+(c+v)*p;
+						s=s+n*Math.sin(c*Math.PI/180)+n*Math.cos(c*Math.PI/180);
 					}
 					else{
-						s=s-(c+v)*p;
+						s=s-Math.sin(c*Math.PI/180)-Math.cos(c*Math.PI/180);
 					}
 				}
 				score++;
@@ -143,14 +143,18 @@ public class run extends Activity
 	}
 		public class zsb extends Thread{
 			public void run(){
-				int c;
+				int c=0;
 				int v=(int)Math.random()*10+1;
-				int p;
+				int p=0;
+				int n;
+				int k=0;
 				boolean bb=false;
 				while(!b){
+					System.out.println(c+v+p+k+"");
 					c=(int)Math.random()*10+1;
 					p=(int)Math.random()*10+1;
-					for(int i=0;i<70000;i++){
+					n=(int)Math.random()*150+10;
+					for(int i=0;i<20000;i++){
 						if(b){
 							break;
 						}
@@ -161,10 +165,10 @@ public class run extends Activity
 							bb=false;
 						}
 						if(!bb){
-						k=k+(c+v)*p;
+							k=k+(int)(n*Math.sin(c*Math.PI/180))+(int)(n*Math.cos(c*Math.PI/180));
 						}
 						else{
-							k=k-(c+v)*p;
+							k=k-(int)(n*Math.sin(c*Math.PI/180))-(int)(n*Math.cos(c*Math.PI/180));
 						}
 					}
 					score++;
@@ -172,7 +176,7 @@ public class run extends Activity
 			}
 		}
 		public void save(){
-						AVObject a=new AVObject("score_beta2");
+						AVObject a=new AVObject("score_beta4");
 						a.put("brand",android.os.Build.BRAND);
 						a.put("model",android.os.Build.MODEL);
 						a.put("android",android.os.Build.VERSION.RELEASE);
