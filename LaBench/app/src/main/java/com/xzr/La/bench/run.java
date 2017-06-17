@@ -176,23 +176,69 @@ public class run extends Activity
 			}
 		}
 		public void save(){
-						AVObject a=new AVObject("score_beta4");
+			AVObject todo = AVObject.createWithoutData("world", "594512cc128fe1006a39448b");
+			todo.fetchInBackground(new GetCallback<AVObject>() {
+					@Override
+					public void done(AVObject avObject,AVException ge){
+						if(ge==null){
+							int z=(sp.getInt("fds",0)+sp.getInt("zss",0))*6+(sp.getInt("fdms",0)+sp.getInt("zsms",0))/2+sp.getInt("io",0)*2;
+							if(avObject.getInt("no1")<z){
+								avObject.put("no3",avObject.getInt("no2"));
+								avObject.put("no3_model",avObject.getString("no2_model"));
+								avObject.put("no3_brand",avObject.getString("no2_brand"));
+								
+								avObject.put("no2",avObject.getInt("no1"));
+								avObject.put("no2_model",avObject.getString("no1_model"));
+								avObject.put("no2_brand",avObject.getString("no1_brand"));
+								
+								avObject.put("no1",z);
+								avObject.put("no1_model",android.os.Build.MODEL);
+								avObject.put("no1_brand",android.os.Build.BRAND);
+								
+								avObject.saveInBackground();
+							}
+							else{
+								if(avObject.getInt("no2")<z){
+									avObject.put("no3",avObject.getInt("no2"));
+									avObject.put("no3_model",avObject.getString("no2_model"));
+									avObject.put("no3_brand",avObject.getString("no2_brand"));
+									
+									avObject.put("no2",z);
+									avObject.put("no2_model",android.os.Build.MODEL);
+									avObject.put("no2_brand",android.os.Build.BRAND);
+									
+									avObject.saveInBackground();
+								}
+								else{
+									if(avObject.getInt("no3")<z){
+										avObject.put("no3",z);
+										avObject.put("no3_model",android.os.Build.MODEL);
+										avObject.put("no3_brand",android.os.Build.BRAND);
+										
+										avObject.saveInBackground();
+									}
+								}
+							}
+						}
+						}
+						});
+						AVObject a=new AVObject("score_r1");
 						a.put("brand",android.os.Build.BRAND);
 						a.put("model",android.os.Build.MODEL);
 						a.put("android",android.os.Build.VERSION.RELEASE);
 
-						a.put("sf",sp.getInt("fds",0));
+						a.put("fds",sp.getInt("fds",0));
 
-						a.put("si",sp.getInt("zss",0));
+						a.put("zss",sp.getInt("zss",0));
 
-						a.put("mf",sp.getInt("fdms",0));
+						a.put("fdms",sp.getInt("fdms",0));
 
-						a.put("mi",sp.getInt("zsms",0));
+						a.put("zsms",sp.getInt("zsms",0));
 
 						a.put("io",sp.getInt("io",0));
-						int z=sp.getInt("fds",0)+sp.getInt("zss",0)*7+sp.getInt("fdms",0)+sp.getInt("zsms",0)+sp.getInt("io",0)*10;
+						int z=(sp.getInt("fds",0)+sp.getInt("zss",0))*6+(sp.getInt("fdms",0)+sp.getInt("zsms",0))/2+sp.getInt("io",0)*2;
 
-						a.put("all",z);
+						a.put("result",z);
 						a.saveInBackground(new SaveCallback() {
 								@Override
 								public void done(AVException e) {
@@ -212,7 +258,7 @@ public class run extends Activity
 					double speed=250/ti;
 					double ls=speed*10;
 					File f=new File("/mnt/sdcard/test");
-					if(!f.exists()||ls>3000){
+					if(!f.exists()||ls>5000){
 					    se.putInt("io",0);
 						se.commit();
 					}

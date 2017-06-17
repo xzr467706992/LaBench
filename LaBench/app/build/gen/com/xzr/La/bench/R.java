@@ -16,23 +16,36 @@ public final class R {
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
+        public static final int wx=0x7f020001;
+        public static final int zfb=0x7f020002;
     }
     public static final class id {
-        public static final int mainTextView1=0x7f070000;
-        public static final int resultTextView1=0x7f070002;
-        public static final int resultTextView2=0x7f070003;
-        public static final int resultTextView3=0x7f070004;
-        public static final int resultTextView4=0x7f070005;
-        public static final int resultTextView5=0x7f070006;
-        public static final int resultTextView6=0x7f070007;
-        public static final int resultTextView7=0x7f070001;
-        public static final int runProgressBar1=0x7f070008;
+        public static final int device=0x7f07000f;
+        public static final int mainListView1=0x7f070002;
+        public static final int no=0x7f07000d;
+        public static final int resultTextView1=0x7f070004;
+        public static final int resultTextView2=0x7f070005;
+        public static final int resultTextView3=0x7f070006;
+        public static final int resultTextView4=0x7f070007;
+        public static final int resultTextView5=0x7f070008;
+        public static final int resultTextView6=0x7f070009;
+        public static final int resultTextView7=0x7f070003;
+        public static final int resultTextView8=0x7f07000a;
+        public static final int resultTextView9=0x7f07000b;
+        public static final int runProgressBar1=0x7f07000c;
+        public static final int score=0x7f07000e;
+        public static final int subtitle=0x7f070001;
+        public static final int title=0x7f070000;
+        public static final int worldListView1=0x7f070010;
     }
     public static final class layout {
-        public static final int main=0x7f030000;
-        public static final int result=0x7f030001;
-        public static final int run=0x7f030002;
-        public static final int world=0x7f030003;
+        public static final int initing=0x7f030000;
+        public static final int list=0x7f030001;
+        public static final int main=0x7f030002;
+        public static final int result=0x7f030003;
+        public static final int run=0x7f030004;
+        public static final int wl=0x7f030005;
+        public static final int world=0x7f030006;
     }
     public static final class string {
         public static final int app_name=0x7f040000;

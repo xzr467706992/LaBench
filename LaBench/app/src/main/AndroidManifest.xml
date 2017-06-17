@@ -36,6 +36,11 @@
             android:label="结果" >
 		</activity>
 		<activity
+            android:name=".history"
+
+            android:label="历史记录" >
+		</activity>
+		<activity
             android:name=".world"
 
             android:label="最强硬件" >

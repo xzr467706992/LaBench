@@ -13,15 +13,11 @@ import com.avos.avoscloud.*;
 
 public class world extends Activity
 {
-	TextView t;
-	TextView t2;
-	TextView t3;
-	TextView t4;
-	TextView t5;
-	TextView t6;
-	SharedPreferences sp;
-	SharedPreferences.Editor se;
-
+	
+	ListView list;
+	int[] score=new int[10];
+	String[] device=new String[10];
+	List<HashMap<String,String>> builder;
 	@Override
     public boolean onOptionsItemSelected(MenuItem item) {
     	switch (item.getItemId()) {
@@ -39,8 +35,53 @@ public class world extends Activity
     {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.result);
-
+        setContentView(R.layout.initing);
+		builder=new ArrayList<HashMap<String,String>>();
 		getActionBar().setDisplayHomeAsUpEnabled(true);
+		AVObject todo = AVObject.createWithoutData("world", "594512cc128fe1006a39448b");
+		todo.fetchInBackground(new GetCallback<AVObject>() {
+				@Override
+				public void done(AVObject avObject,AVException ge){
+					if(ge==null){
+						for(int i=1 ;i<=3;i++){
+							score[i]=avObject.getInt("no"+i);
+							device[i]=avObject.getString("no"+i+"_brand")+" "+avObject.getString("no"+i+"_model");
+							
+						}
+						
+						}
+					refresh();
+						}
+						});
+	}
+	public void refresh(){
+		setContentView(R.layout.world);
+		list=(ListView)findViewById(R.id.worldListView1);
+		HashMap<String,String> m1=new HashMap<String,String>();
+		m1.put("no","No.1");
+		m1.put("score",score[1]+"");
+		m1.put("device",device[1]+"");
+		builder.add(m1);
+		
+		HashMap<String,String> m2=new HashMap<String,String>();
+		m2.put("no","No.2");
+		m2.put("score",score[2]+"");
+		m2.put("device",device[2]+"");
+		builder.add(m2);
+		
+		HashMap<String,String> m3=new HashMap<String,String>();
+		m3.put("no","No.3");
+		m3.put("score",score[3]+"");
+		m3.put("device",device[3]+"");
+		builder.add(m3);
+		SimpleAdapter a=new SimpleAdapter(this,builder,R.layout.wl,new String[]{"no","score","device"},new int[]{R.id.no,R.id.score,R.id.device});
+		list.setAdapter(a);
+		OnItemClickListener mItemClickListener = new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView arg0, View arg1, int arg2, long arg3) {
+				
+			}
+		};
+		list.setOnItemClickListener(mItemClickListener);
 	}
 	}

@@ -2,8 +2,8 @@
 <manifest
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	package="com.xzr.La.bench"
-	android:versionCode="2017061701"
-	android:versionName="2.0 beta4">
+	android:versionCode="2017061702"
+	android:versionName="2.0 beta5">
 
 	<uses-sdk
 		android:minSdkVersion="10"
@@ -51,6 +51,12 @@
 		<activity
 			android:name=".result"
 			android:label="结果">
+
+		</activity>
+
+		<activity
+			android:name=".history"
+			android:label="历史记录">
 
 		</activity>
 
