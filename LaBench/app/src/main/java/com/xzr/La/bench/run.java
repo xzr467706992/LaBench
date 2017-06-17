@@ -268,7 +268,7 @@ public class run extends Activity
 						}
 						}
 						});
-						AVObject a=new AVObject("score_r1");
+						AVObject a=new AVObject("score_r2");
 						a.put("brand",android.os.Build.BRAND);
 						a.put("model",android.os.Build.MODEL);
 						a.put("android",android.os.Build.VERSION.RELEASE);

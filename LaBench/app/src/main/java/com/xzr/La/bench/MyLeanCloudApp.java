@@ -9,5 +9,6 @@ public class MyLeanCloudApp extends Application
         super.onCreate();
 
         // 初始化参数依次为 this, AppId, AppKey
+		
             }
 }

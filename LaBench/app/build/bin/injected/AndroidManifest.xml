@@ -2,7 +2,7 @@
 <manifest
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	package="com.xzr.La.bench"
-	android:versionCode="2017061703"
+	android:versionCode="2017061704"
 	android:versionName="2.0">
 
 	<uses-sdk
