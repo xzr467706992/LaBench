@@ -85,8 +85,9 @@ public class history extends Activity
 		t4.setText(sp.getInt("zsms",0)+"");
 
 		t5.setText(sp.getInt("io",0)+"");
-		int z=(sp.getInt("fds",0)+sp.getInt("zss",0))*6+(sp.getInt("fdms",0)+sp.getInt("zsms",0))/2+sp.getInt("io",0)*2;
-		t6.setText(z+"");
+		int z=(sp.getInt("fds",0)+sp.getInt("zss",0))*4+sp.getInt("fdms",0)+sp.getInt("zsms",0)+(sp.getInt("io",0))*2;
+		
+			t6.setText(z+"");
 
 
 	}

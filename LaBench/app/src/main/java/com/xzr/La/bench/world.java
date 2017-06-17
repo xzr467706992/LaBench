@@ -38,12 +38,12 @@ public class world extends Activity
         setContentView(R.layout.initing);
 		builder=new ArrayList<HashMap<String,String>>();
 		getActionBar().setDisplayHomeAsUpEnabled(true);
-		AVObject todo = AVObject.createWithoutData("world", "594512cc128fe1006a39448b");
+		AVObject todo = AVObject.createWithoutData("world", "59452aedac502e006b9563ad");
 		todo.fetchInBackground(new GetCallback<AVObject>() {
 				@Override
 				public void done(AVObject avObject,AVException ge){
 					if(ge==null){
-						for(int i=1 ;i<=3;i++){
+						for(int i=1 ;i<=5;i++){
 							score[i]=avObject.getInt("no"+i);
 							device[i]=avObject.getString("no"+i+"_brand")+" "+avObject.getString("no"+i+"_model");
 							
@@ -74,6 +74,18 @@ public class world extends Activity
 		m3.put("score",score[3]+"");
 		m3.put("device",device[3]+"");
 		builder.add(m3);
+		
+		HashMap<String,String> m4=new HashMap<String,String>();
+		m4.put("no","No.4");
+		m4.put("score",score[4]+"");
+		m4.put("device",device[4]+"");
+		builder.add(m4);
+		
+		HashMap<String,String> m5=new HashMap<String,String>();
+		m5.put("no","No.5");
+		m5.put("score",score[5]+"");
+		m5.put("device",device[5]+"");
+		builder.add(m5);
 		SimpleAdapter a=new SimpleAdapter(this,builder,R.layout.wl,new String[]{"no","score","device"},new int[]{R.id.no,R.id.score,R.id.device});
 		list.setAdapter(a);
 		OnItemClickListener mItemClickListener = new OnItemClickListener() {

@@ -176,13 +176,21 @@ public class run extends Activity
 			}
 		}
 		public void save(){
-			AVObject todo = AVObject.createWithoutData("world", "594512cc128fe1006a39448b");
+			AVObject todo = AVObject.createWithoutData("world", "59452aedac502e006b9563ad");
 			todo.fetchInBackground(new GetCallback<AVObject>() {
 					@Override
 					public void done(AVObject avObject,AVException ge){
 						if(ge==null){
-							int z=(sp.getInt("fds",0)+sp.getInt("zss",0))*6+(sp.getInt("fdms",0)+sp.getInt("zsms",0))/2+sp.getInt("io",0)*2;
+							int z=(sp.getInt("fds",0)+sp.getInt("zss",0))*4+sp.getInt("fdms",0)+sp.getInt("zsms",0)+(sp.getInt("io",0))*2;
 							if(avObject.getInt("no1")<z){
+								avObject.put("no5",avObject.getInt("no4"));
+								avObject.put("no5_model",avObject.getString("no4_model"));
+								avObject.put("no5_brand",avObject.getString("no4_brand"));
+								
+								avObject.put("no4",avObject.getInt("no3"));
+								avObject.put("no4_model",avObject.getString("no3_model"));
+								avObject.put("no4_brand",avObject.getString("no3_brand"));
+								
 								avObject.put("no3",avObject.getInt("no2"));
 								avObject.put("no3_model",avObject.getString("no2_model"));
 								avObject.put("no3_brand",avObject.getString("no2_brand"));
@@ -199,6 +207,14 @@ public class run extends Activity
 							}
 							else{
 								if(avObject.getInt("no2")<z){
+									avObject.put("no5",avObject.getInt("no4"));
+									avObject.put("no5_model",avObject.getString("no4_model"));
+									avObject.put("no5_brand",avObject.getString("no4_brand"));
+									
+									avObject.put("no4",avObject.getInt("no3"));
+									avObject.put("no4_model",avObject.getString("no3_model"));
+									avObject.put("no4_brand",avObject.getString("no3_brand"));
+									
 									avObject.put("no3",avObject.getInt("no2"));
 									avObject.put("no3_model",avObject.getString("no2_model"));
 									avObject.put("no3_brand",avObject.getString("no2_brand"));
@@ -211,11 +227,41 @@ public class run extends Activity
 								}
 								else{
 									if(avObject.getInt("no3")<z){
+										avObject.put("no5",avObject.getInt("no4"));
+										avObject.put("no5_model",avObject.getString("no4_model"));
+										avObject.put("no5_brand",avObject.getString("no4_brand"));
+										
+										avObject.put("no4",avObject.getInt("no3"));
+										avObject.put("no4_model",avObject.getString("no3_model"));
+										avObject.put("no4_brand",avObject.getString("no3_brand"));
 										avObject.put("no3",z);
 										avObject.put("no3_model",android.os.Build.MODEL);
 										avObject.put("no3_brand",android.os.Build.BRAND);
 										
 										avObject.saveInBackground();
+									}
+									else{
+										if(avObject.getInt("no4")<z){
+											avObject.put("no5",avObject.getInt("no4"));
+											avObject.put("no5_model",avObject.getString("no4_model"));
+											avObject.put("no5_brand",avObject.getString("no4_brand"));
+											
+											avObject.put("no4",z);
+											avObject.put("no4_model",android.os.Build.MODEL);
+											avObject.put("no4_brand",android.os.Build.BRAND);
+
+											avObject.saveInBackground();
+										}
+										else{
+											if(avObject.getInt("no5")<z){
+												
+												avObject.put("no5",z);
+												avObject.put("no5_model",android.os.Build.MODEL);
+												avObject.put("no5_brand",android.os.Build.BRAND);
+
+												avObject.saveInBackground();
+											}
+										}
 									}
 								}
 							}
@@ -236,8 +282,9 @@ public class run extends Activity
 						a.put("zsms",sp.getInt("zsms",0));
 
 						a.put("io",sp.getInt("io",0));
-						int z=(sp.getInt("fds",0)+sp.getInt("zss",0))*6+(sp.getInt("fdms",0)+sp.getInt("zsms",0))/2+sp.getInt("io",0)*2;
-
+			        
+						int z=(sp.getInt("fds",0)+sp.getInt("zss",0))*4+sp.getInt("fdms",0)+sp.getInt("zsms",0)+(sp.getInt("io",0))*2;
+			
 						a.put("result",z);
 						a.saveInBackground(new SaveCallback() {
 								@Override
