@@ -14,8 +14,15 @@ public class run extends Activity
 	SharedPreferences sp;
 	SharedPreferences.Editor se;
 	boolean b=false;
-	ProgressBar p;
+	ProgressBar pp;
 	int score;
+	double c1=0;
+	boolean bb=false;
+	double p1=0;
+	double n1;
+	int c2=0;
+	int p2=0;
+	int n2;
 	@Override
     public boolean onOptionsItemSelected(MenuItem item) {
     	switch (item.getItemId()) {
@@ -48,7 +55,7 @@ public class run extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.run);
 
-		p=(ProgressBar)findViewById(R.id.runProgressBar1);
+		pp=(ProgressBar)findViewById(R.id.runProgressBar1);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		sp=getSharedPreferences("main",0);
 		se=sp.edit();
@@ -56,21 +63,22 @@ public class run extends Activity
 		}
 		public class handler extends Thread{
 			public void run(){
+				new Random().start();
 				clear();
-				p.incrementSecondaryProgressBy(1);
+				pp.incrementSecondaryProgressBy(1);
 				new fdb().start();
 				new timer().run();
 				se.putInt("fds",score);
 				se.commit();
-				p.incrementProgressBy(1);
-				p.incrementSecondaryProgressBy(1);
+				pp.incrementProgressBy(1);
+				pp.incrementSecondaryProgressBy(1);
 				clear();
 				new zsb().start();
 				new timer().run();
 				se.putInt("zss",score);
 				se.commit();
-				p.incrementProgressBy(1);
-				p.incrementSecondaryProgressBy(1);
+				pp.incrementProgressBy(1);
+				pp.incrementSecondaryProgressBy(1);
 				clear();
 				for(int i=1;i<=10;i++){
 					new fdb().start();
@@ -78,8 +86,8 @@ public class run extends Activity
 				new timer().run();
 				se.putInt("fdms",score);
 				se.commit();
-				p.incrementProgressBy(1);
-				p.incrementSecondaryProgressBy(1);
+				pp.incrementProgressBy(1);
+				pp.incrementSecondaryProgressBy(1);
 				clear();
 				for(int i=1;i<=10;i++){
 					new zsb().start();
@@ -87,7 +95,7 @@ public class run extends Activity
 				new timer().run();
 				se.putInt("zsms",score);
 				se.commit();
-				p.incrementProgressBy(1);
+				pp.incrementProgressBy(1);
 				
 				clear();
 				new io().start();
@@ -107,20 +115,63 @@ public class run extends Activity
 				b=true;
 			}
 		}
+		public class Random extends Thread{
+			public void run(){
+				while(true){
+				try
+				{
+					Thread.sleep(1);
+				}
+				catch (InterruptedException e)
+				{}
+				c1=Math.random()*90+1;
+				try
+				{
+					Thread.sleep(1);
+				}
+				catch (InterruptedException e)
+				{}
+				p1=Math.random()*90+1;
+				try
+				{
+					Thread.sleep(1);
+				}
+				catch (InterruptedException e)
+				{}
+				n1=Math.random()*150+10;
+				try
+				{
+					Thread.sleep(1);
+				}
+				catch (InterruptedException e)
+				{}
+				c2=(int)Math.random()*10+1;
+				try
+				{
+					Thread.sleep(1);
+				}
+				catch (InterruptedException e)
+				{}
+				p2=(int)Math.random()*10+1;
+				try
+				{
+					Thread.sleep(1);
+				}
+				catch (InterruptedException e)
+				{}
+				n2=(int)Math.random()*150+10;
+				}
+			}
+		}
 	public class fdb extends Thread{
 		public void run(){
-			double c=0;
-			double v=Math.random()*10+1;
-			boolean bb=false;
-			double p=0;
-			double n;
+			
 			double s=0;
 			while(!b){
-				System.out.println(c+v+p+s+"");
-				c=Math.random()*90+1;
-				p=Math.random()*90+1;
-				n=Math.random()*150+10;
-				for(int i=0;i<20000;i++){
+				System.out.println(c1+p1+s+"");
+				
+				for(double i=0;i<1800;i=i+0.1){
+					
 					if(b){
 						break;
 					}
@@ -131,10 +182,10 @@ public class run extends Activity
 						bb=false;
 					}
 					if(!bb){
-						s=s+n*Math.sin(c*Math.PI/180)+n*Math.cos(c*Math.PI/180);
+						s=s+n1*(Math.sin(c1*Math.PI/180)+i)+n1*(Math.cos(p1*Math.PI/180)+i);
 					}
 					else{
-						s=s-Math.sin(c*Math.PI/180)-Math.cos(c*Math.PI/180);
+						s=s-n1*(Math.sin(c1*Math.PI/180)+i)-n1*(Math.cos(p1*Math.PI/180)+i);
 					}
 				}
 				score++;
@@ -143,18 +194,15 @@ public class run extends Activity
 	}
 		public class zsb extends Thread{
 			public void run(){
-				int c=0;
-				int v=(int)Math.random()*10+1;
-				int p=0;
-				int n;
+				
 				int k=0;
 				boolean bb=false;
 				while(!b){
-					System.out.println(c+v+p+k+"");
-					c=(int)Math.random()*10+1;
-					p=(int)Math.random()*10+1;
-					n=(int)Math.random()*150+10;
-					for(int i=0;i<20000;i++){
+					System.out.println(c2+p2+k+"");
+					
+					
+					for(int i=0;i<18000;i++){
+						
 						if(b){
 							break;
 						}
@@ -165,10 +213,10 @@ public class run extends Activity
 							bb=false;
 						}
 						if(!bb){
-							k=k+(int)(n*Math.sin(c*Math.PI/180))+(int)(n*Math.cos(c*Math.PI/180));
+							k=k+(int)(n2*(Math.sin(c2*Math.PI/180)+i/10))+(int)(n2*(Math.cos(p2*Math.PI/180)+i/10));
 						}
 						else{
-							k=k-(int)(n*Math.sin(c*Math.PI/180))-(int)(n*Math.cos(c*Math.PI/180));
+							k=k-(int)(n2*(Math.sin(c2*Math.PI/180)+i/10))-(int)(n2*(Math.cos(p2*Math.PI/180)+i/10));
 						}
 					}
 					score++;
@@ -176,7 +224,7 @@ public class run extends Activity
 			}
 		}
 		public void save(){
-			AVObject todo = AVObject.createWithoutData("world", "59452aedac502e006b9563ad");
+			AVObject todo = AVObject.createWithoutData("zqyj", "594624f9da2f6000677c0f5d");
 			todo.fetchInBackground(new GetCallback<AVObject>() {
 					@Override
 					public void done(AVObject avObject,AVException ge){
@@ -268,7 +316,7 @@ public class run extends Activity
 						}
 						}
 						});
-						AVObject a=new AVObject("score_r2");
+						AVObject a=new AVObject("score_r3");
 						a.put("brand",android.os.Build.BRAND);
 						a.put("model",android.os.Build.MODEL);
 						a.put("android",android.os.Build.VERSION.RELEASE);
