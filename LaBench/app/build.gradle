@@ -8,8 +8,8 @@ android {
         applicationId "com.xzr.La.bench"
         minSdkVersion 10
         targetSdkVersion 21
-        versionCode 2017062700
-        versionName "2.2"
+        versionCode 2017062701
+        versionName "2.3"
     }
     buildTypes {
         release {

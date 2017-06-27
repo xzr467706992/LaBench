@@ -67,14 +67,14 @@ public class run extends Activity
 				pp.incrementSecondaryProgressBy(1);
 				new fdb().start();
 				new timer().run();
-				se.putInt("fds",score*6);
+				se.putInt("fds",score);
 				se.commit();
 				pp.incrementProgressBy(1);
 				pp.incrementSecondaryProgressBy(1);
 				clear();
 				new zsb().start();
 				new timer().run();
-				se.putInt("zss",score*6);
+				se.putInt("zss",score);
 				se.commit();
 				pp.incrementProgressBy(1);
 				pp.incrementSecondaryProgressBy(1);
@@ -83,7 +83,7 @@ public class run extends Activity
 					new fdb().start();
 				}
 				new timer().run();
-				se.putInt("fdms",score*6);
+				se.putInt("fdms",score);
 				se.commit();
 				pp.incrementProgressBy(1);
 				pp.incrementSecondaryProgressBy(1);
@@ -92,7 +92,7 @@ public class run extends Activity
 					new zsb().start();
 				}
 				new timer().run();
-				se.putInt("zsms",score*6);
+				se.putInt("zsms",score);
 				se.commit();
 				pp.incrementProgressBy(1);
 				
@@ -183,7 +183,7 @@ public class run extends Activity
 			}
 		}
 		public void save(){
-			AVObject todo = AVObject.createWithoutData("zqyj", "5951f958570c357d06c129a8");
+			AVObject todo = AVObject.createWithoutData("zqyj", "5951fc40fe88c2005fa71aaf");
 			todo.fetchInBackground(new GetCallback<AVObject>() {
 					@Override
 					public void done(AVObject avObject,AVException ge){
@@ -275,7 +275,7 @@ public class run extends Activity
 						}
 						}
 						});
-						AVObject a=new AVObject("score_r4");
+						AVObject a=new AVObject("score_r5");
 						a.put("brand",android.os.Build.BRAND);
 						a.put("model",android.os.Build.MODEL);
 						a.put("android",android.os.Build.VERSION.RELEASE);
