@@ -2,8 +2,8 @@
 <manifest
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	package="com.xzr.La.bench"
-	android:versionCode="2017061800"
-	android:versionName="2.1">
+	android:versionCode="2017062700"
+	android:versionName="2.2">
 
 	<uses-sdk
 		android:minSdkVersion="10"

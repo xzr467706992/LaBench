@@ -63,19 +63,18 @@ public class run extends Activity
 		}
 		public class handler extends Thread{
 			public void run(){
-				new Random().start();
 				clear();
 				pp.incrementSecondaryProgressBy(1);
 				new fdb().start();
 				new timer().run();
-				se.putInt("fds",score);
+				se.putInt("fds",score*6);
 				se.commit();
 				pp.incrementProgressBy(1);
 				pp.incrementSecondaryProgressBy(1);
 				clear();
 				new zsb().start();
 				new timer().run();
-				se.putInt("zss",score);
+				se.putInt("zss",score*6);
 				se.commit();
 				pp.incrementProgressBy(1);
 				pp.incrementSecondaryProgressBy(1);
@@ -84,7 +83,7 @@ public class run extends Activity
 					new fdb().start();
 				}
 				new timer().run();
-				se.putInt("fdms",score);
+				se.putInt("fdms",score*6);
 				se.commit();
 				pp.incrementProgressBy(1);
 				pp.incrementSecondaryProgressBy(1);
@@ -93,7 +92,7 @@ public class run extends Activity
 					new zsb().start();
 				}
 				new timer().run();
-				se.putInt("zsms",score);
+				se.putInt("zsms",score*6);
 				se.commit();
 				pp.incrementProgressBy(1);
 				
@@ -115,116 +114,76 @@ public class run extends Activity
 				b=true;
 			}
 		}
-		public class Random extends Thread{
-			public void run(){
-				while(true){
-				try
-				{
-					Thread.sleep(1);
-				}
-				catch (InterruptedException e)
-				{}
-				c1=Math.random()*90+1;
-				try
-				{
-					Thread.sleep(1);
-				}
-				catch (InterruptedException e)
-				{}
-				p1=Math.random()*90+1;
-				try
-				{
-					Thread.sleep(1);
-				}
-				catch (InterruptedException e)
-				{}
-				n1=Math.random()*150+10;
-				try
-				{
-					Thread.sleep(1);
-				}
-				catch (InterruptedException e)
-				{}
-				c2=(int)Math.random()*10+1;
-				try
-				{
-					Thread.sleep(1);
-				}
-				catch (InterruptedException e)
-				{}
-				p2=(int)Math.random()*10+1;
-				try
-				{
-					Thread.sleep(1);
-				}
-				catch (InterruptedException e)
-				{}
-				n2=(int)Math.random()*150+10;
-				}
-			}
-		}
+		
 	public class fdb extends Thread{
 		public void run(){
-			
-			double s=0;
+			double p;
+			double q;
+			double k;
+			double i;
+			double r;
+			double m;
+			double n;
+			double o;
+			double mi=0;
+			double cache=0;
 			while(!b){
-				System.out.println(c1+p1+s+"");
-				
-				for(double i=0;i<1800;i=i+0.1){
-					
-					if(b){
-						break;
-					}
-					if(s>2000000000){
-						bb=true;
-					}
-					if(s<-2000000000){
-						bb=false;
-					}
-					if(!bb){
-						s=s+n1*(Math.sin(c1*Math.PI/180)+i)+n1*(Math.cos(p1*Math.PI/180)+i);
-					}
-					else{
-						s=s-n1*(Math.sin(c1*Math.PI/180)+i)-n1*(Math.cos(p1*Math.PI/180)+i);
-					}
+				p=Math.random()*88+1;
+				q=Math.random()*100+500;
+				for(int z=0;z<=8000;z++){
+					k=Math.pow(p,9);
+					i=Math.pow(q,1/9);
+					r=p*q;
+					m=Math.sin(p*Math.PI/180);
+					n=Math.cos(p*Math.PI/180);
+					o=Math.tan(p*Math.PI/180);
+
+
+					mi=p+q*m+k-i*n+o;
+
 				}
+				cache=cache+mi;
 				score++;
+
 			}
 		}
 	}
 		public class zsb extends Thread{
 			public void run(){
 				
-				int k=0;
-				boolean bb=false;
+				int p;
+				int q;
+				int k;
+				int i;
+				int r;
+				int m;
+				int n;
+				int o;
+				int mi=0;
+				int cache=0;
 				while(!b){
-					System.out.println(c2+p2+k+"");
-					
-					
-					for(int i=0;i<18000;i++){
-						
-						if(b){
-							break;
-						}
-						if(k>2000000000){
-							bb=true;
-						}
-						if(k<-2000000000){
-							bb=false;
-						}
-						if(!bb){
-							k=k+(int)(n2*(Math.sin(c2*Math.PI/180)+i/10))+(int)(n2*(Math.cos(p2*Math.PI/180)+i/10));
-						}
-						else{
-							k=k-(int)(n2*(Math.sin(c2*Math.PI/180)+i/10))-(int)(n2*(Math.cos(p2*Math.PI/180)+i/10));
-						}
+					p=(int)Math.random()*88+1;
+					q=(int)Math.random()*100+500;
+					for(int z=0;z<=8000;z++){
+						k=(int) Math.pow(p,9);
+						i=(int) Math.pow(q,1/9);
+						r=p*q;
+						m=(int) Math.sin(p*Math.PI/180);
+						n=(int) Math.cos(p*Math.PI/180);
+						o=(int) Math.tan(p*Math.PI/180);
+
+
+						mi=p+q*m+k-i*n+o;
+
 					}
+					cache=cache+mi;
 					score++;
+
 				}
 			}
 		}
 		public void save(){
-			AVObject todo = AVObject.createWithoutData("zqyj", "594624f9da2f6000677c0f5d");
+			AVObject todo = AVObject.createWithoutData("zqyj", "5951f958570c357d06c129a8");
 			todo.fetchInBackground(new GetCallback<AVObject>() {
 					@Override
 					public void done(AVObject avObject,AVException ge){
@@ -316,7 +275,7 @@ public class run extends Activity
 						}
 						}
 						});
-						AVObject a=new AVObject("score_r3");
+						AVObject a=new AVObject("score_r4");
 						a.put("brand",android.os.Build.BRAND);
 						a.put("model",android.os.Build.MODEL);
 						a.put("android",android.os.Build.VERSION.RELEASE);

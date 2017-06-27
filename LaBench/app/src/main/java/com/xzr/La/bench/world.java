@@ -38,7 +38,7 @@ public class world extends Activity
         setContentView(R.layout.initing);
 		builder=new ArrayList<HashMap<String,String>>();
 		getActionBar().setDisplayHomeAsUpEnabled(true);
-		AVObject todo = AVObject.createWithoutData("zqyj", "594624f9da2f6000677c0f5d");
+		AVObject todo = AVObject.createWithoutData("zqyj", "5951f958570c357d06c129a8");
 		todo.fetchInBackground(new GetCallback<AVObject>() {
 				@Override
 				public void done(AVObject avObject,AVException ge){
